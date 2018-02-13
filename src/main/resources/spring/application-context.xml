@@ -6,8 +6,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     
     <!-- Uncomment and add your base-package here: -->
-	<context:component-scan base-package="com.easkerov"/>
-
-	<!-- <bean class="com.easkerov.daoimpl.DocumentServiceImpl"/> -->
+	<context:component-scan base-package="com.easkerov.docworkflowapp"/>
 
 </beans>

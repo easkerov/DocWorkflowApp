@@ -37,7 +37,21 @@
 		<dbcp2.version>2.2.0</dbcp2.version>
 
 	</properties>
-	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>9090</port>
+					<path>/</path>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<dependencies>
 	
 		<!-- Spring MVC -->
@@ -132,5 +146,14 @@
 			<scope>test</scope>
 		</dependency>
 
-	</dependencies>	
+		<!-- Tomcat Artifacts -->
+		<dependency>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat7-maven-plugin</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
 </project>

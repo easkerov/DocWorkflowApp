@@ -1,4 +1,4 @@
-package com.easkerov.model;
+package com.easkerov.docworkflowapp.domain;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -10,9 +10,9 @@ import javax.persistence.*;
 public class Document {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	//@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "DOC_ID")
-	private Long id;
+	private Integer id;
 	
 	@Column(name = "DOC_DATE")
 	private Date date;
@@ -20,11 +20,11 @@ public class Document {
 	@Column(name = "DOC_AMOUNT")
 	private BigDecimal 	amount;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
