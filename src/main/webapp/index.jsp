@@ -11,7 +11,7 @@
 		<title>Welcome</title>
 	</head> 
 	<body>
-		<c:url value="/showMessage.html" var="messageUrl" />
-		<a href="${messageUrl}">Click to enter</a>
+		<c:url value="/document/list" var="messageUrl" />
+		<a href="${messageUrl}">Перейти к списку документов</a>
 	</body>
 </html>

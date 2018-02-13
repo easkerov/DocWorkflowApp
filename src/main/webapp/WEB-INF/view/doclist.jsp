@@ -5,16 +5,22 @@
   Time: 01:07
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <html>
 <head>
     <title>Документы</title>
 </head>
 <body>
     <h1>Документы</h1>
-    <c:url var="addUrl" value="/krams/main/persons/add" />
+    <c:url var="addUrl" value="/document/add" />
+    <c:url var="deleteUrl" value="/document/delete" />
+    <a href="${addUrl}">Создать документ</a>
+    <a href="${deleteUrl}">Удалить документ</a>
     <table style="border: 1px solid; width: 500px; text-align:center">
-        <thead style="background:#fcf">
+        <thead style="background:#5c7cff">
         <tr>
             <th>НОМЕР</th>
             <th>ДАТА</th>
@@ -24,23 +30,16 @@
         </thead>
         <tbody>
         <c:forEach items="${documents}" var="document">
-            <c:url var="editUrl" value="/krams/main/persons/edit?id=${document.id}" />
-            <c:url var="deleteUrl" value="/krams/main/persons/delete?id=${document.id}" />
             <tr>
                 <td><c:out value="${document.id}" /></td>
                 <td><c:out value="${document.date}" /></td>
                 <td><c:out value="${document.amount}" /></td>
-                <td><a href="${editUrl}">Редактировать</a></td>
-                <td><a href="${deleteUrl}">Удалить</a></td>
-                <td><a href="${addUrl}">Добавить</a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-
     <c:if test="${empty documents}">
-        В таблице отсутствуют документы!<a href="${addUrl}">Добавить</a> документ.
+        В таблице отсутствуют документы! <a href="${addUrl}">Добавить</a> документ.
     </c:if>
-
 </body>
 </html>

@@ -1,39 +1,78 @@
 package com.easkerov.controller;
 
-import java.util.List;
-import com.easkerov.domain.DocumentEntity;
-import com.easkerov.service.DocumentService;
+import com.easkerov.dao.DocumentService;
+import com.easkerov.model.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import javax.annotation.Resource;
-
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 
 @Controller
-@RequestMapping("/main")
 public class DocumentController {
 
+    private final Logger logger = LoggerFactory.getLogger(DocumentController.class);
+
     @Resource(name="documentService")
-    private DocumentService personService;
+    private DocumentService documentService;
 
-
-    /**
-     * Handles and retrieves all persons and show it in a JSP page
-     *
-     * @return the name of the JSP page
-     */
-    @RequestMapping(value = "/doclist", method = RequestMethod.GET)
+    @RequestMapping(value = "/document/list", method = RequestMethod.GET)
     public String getPersons(Model model) {
 
-        // Retrieve all persons by delegating the call to PersonService
-        List<DocumentEntity> documents = personService.getAll();
+        logger.debug("Viewing list of documents to user");
 
-        // Attach persons to the Model
+        List<Document> documents = documentService.getAll();
+
         model.addAttribute("documents", documents);
 
-        // This will resolve to /WEB-INF/jsp/personspage.jsp
+        return "doclist";
+    }
+
+    @RequestMapping(value = "/document/add", method = RequestMethod.GET)
+    public String getAdd(Model model) {
+
+        logger.debug("Show 'Add Document' page");
+
+        model.addAttribute("document", new Document());
+
+        return "adddoc";
+    }
+
+    @RequestMapping(value = "/document/add", method = RequestMethod.POST)
+    public String add(@ModelAttribute("document") Document document) {
+
+        logger.debug("Request to add new document");
+
+        documentService.addDocument(document);
+
+        return "doclist";
+    }
+
+
+    @RequestMapping(value = "/document/delete", method = RequestMethod.GET)
+    public String delete(Model model) {
+
+        logger.debug("Show 'Remove Document' page");
+
+        return "deldoc";
+    }
+
+    @RequestMapping(value = "/document/delete", method = RequestMethod.POST)
+    public String delete(@RequestParam(value="id") Long id, Model model) {
+
+        logger.debug("Removing the document...");
+
+        documentService.delDocument(id);
+
+        model.addAttribute("id", id);
+
         return "doclist";
     }
 
