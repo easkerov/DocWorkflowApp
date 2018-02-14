@@ -2,7 +2,7 @@
 
 This is sample Java Web application implementing simple document workflow to demo Spring MVC/Hibernate/Spring Security framework features. 
 
-### Frameworks used: 
+### Frameworks used 
 Spring MVC, Spring Security, Hibernate, H2 as embedded DB.
 
 ### Prerequisites
@@ -12,7 +12,7 @@ Minimal:
 
 Optional:
 
-* Apache Tomcat 7 and higher servlet container if you want to deploy WAR artifact without using embedded container
+* Apache Tomcat 7 (and higher) or other servlet container, if you want to deploy WAR artifact without using embedded container
 
 ### How to build and run
 
