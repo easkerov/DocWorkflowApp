@@ -8,7 +8,7 @@ public interface DocumentService {
 
     List<Document> getAll();
 
-    Document getDocument(Integer id );
+    Document getDocument(Integer id);
 
     void addDocument(Document document);
 

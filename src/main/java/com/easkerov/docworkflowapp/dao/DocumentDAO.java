@@ -8,7 +8,7 @@ public interface DocumentDAO {
 
     List<Document> getAll();
 
-    Document getDocument(Integer id );
+    Document getDocument(Integer id);
 
     void addDocument(Document document);
 

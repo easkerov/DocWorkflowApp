@@ -2,73 +2,99 @@ package com.easkerov.docworkflowapp.web;
 
 import com.easkerov.docworkflowapp.domain.Document;
 import com.easkerov.docworkflowapp.service.DocumentService;
+import com.easkerov.docworkflowapp.util.LoggerUtil;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
 @RequestMapping("/document")
 public class DocumentController {
 
-    private final Logger logger = LoggerFactory.getLogger(DocumentController.class);
+    private static final Logger logger = LoggerUtil.getLogger(DocumentController.class);
 
     @Autowired
     private DocumentService documentService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String getPersons(Model model) {
-
-        logger.debug("Viewing list of documents to user");
+    public String getDocuments(HttpServletRequest request, Model model) {
 
         List<Document> documents = documentService.getAll();
 
         model.addAttribute("documents", documents);
 
+        LoggerUtil.logActivity(logger,
+                "debug",
+                "getDocuments",
+                request.getMethod(),
+                request.getRequestURI(),
+                "Show 'Document List' view");
+
         return "doclist";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String getAdd(Model model) {
-
-        logger.debug("Show 'Add Document' page");
+    public String getAddDocument(HttpServletRequest request,Model model) {
 
         model.addAttribute("document", new Document());
+
+        LoggerUtil.logActivity(logger,
+                "debug",
+                "getAddDocument",
+                request.getMethod(),
+                request.getRequestURI(),
+                "Show 'Add Document' view");
 
         return "adddoc";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@ModelAttribute("document") Document document) {
-
-        logger.debug("Request to add new document");
+    public String addDocument(@ModelAttribute("document") Document document, HttpServletRequest request) {
 
         documentService.addDocument(document);
+
+        LoggerUtil.logActivity(logger,
+                "debug",
+                "addDocument",
+                request.getMethod(),
+                request.getRequestURI(),
+                "Creating document " + document.toString());
 
         return "redirect:/document/list";
     }
 
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String delete(Model model) {
-
-        logger.debug("Show 'Remove Document' page");
+    public String getDelDocument(Model model, HttpServletRequest request) {
 
         model.addAttribute("document", new Document());
+
+        LoggerUtil.logActivity(logger,
+                "debug",
+                "getDelDocument",
+                request.getMethod(),
+                request.getRequestURI(),
+                "Show 'Remove Document' page");
 
         return "deldoc";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String delete(@ModelAttribute("document") Document document) {
-
-        logger.debug("Removing the document #" + document.getId());
+    public String delDocument(@ModelAttribute("document") Document document, HttpServletRequest request) {
 
         documentService.delDocument(document.getId());
+
+        LoggerUtil.logActivity(logger,
+                "debug",
+                "delDocument",
+                request.getMethod(),
+                request.getRequestURI(),
+                "Removing document #" + document.getId());
 
         return "redirect:/document/list";
     }
