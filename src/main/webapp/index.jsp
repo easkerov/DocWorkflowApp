@@ -7,11 +7,13 @@
 
 <html>
 	<head>
-		<title>Авторизация</title>
-	</head> 
+		<title>Документы</title>
+	</head>
 	<body>
-		<h1>Авторизация</h1>
-		<c:url value="/document/list" var="messageUrl" />
-		<a href="${messageUrl}">Перейти к списку документов</a>
+		<%
+			String docListLocation = new String("/document/list");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", docListLocation);
+		%>
 	</body>
 </html>
