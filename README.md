@@ -22,33 +22,33 @@ Optional:
 
 1. Go to application sources folder and build WAR artifact:
 
-  * You can use Gradle wrapper:
+   * You can use Gradle wrapper:
 
-    ```sh
-    $ ./gradlew build
-    ```
+     ```sh
+     $ ./gradlew build
+     ```
 
-  * Alternatively you can use Maven for artifact building:
+   * Alternatively you can use Maven for artifact building:
     
-    ```sh
-    $ mvn package
-    ```
+     ```sh
+     $ mvn package
+     ```
 
 1. If you want to run application using embedded Tomcat 7 servlet container:
 
-  * Using Maven:
+    * Using Maven:
 
-    ```sh
-    $ mvn tomcat7:run
-    ```
+      ```sh
+      $ mvn tomcat7:run
+      ```
 
-  * Using Gradle wrapper:
+    * Using Gradle wrapper:
 
-    ```sh
-    $  ./gradlew appRun
-    ```
+      ```sh
+      $  ./gradlew appRun
+      ```
 
-1.  Open your browser and navigate to http://localhost:9090/
+1.  Open your favourite browser and navigate to http://localhost:9090/
 
 ### How to use
 
