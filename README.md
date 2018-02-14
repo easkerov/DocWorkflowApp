@@ -1,31 +1,54 @@
-# Document Workflow Sample App
+Document Workflow Sample App
+============================
 
-This is sample Java Web application implementing simple document workflow to demo Spring MVC/Hibernate/Spring Security framework features. 
+This is sample Java web application implementing simple document workflow to demo Spring MVC/Hibernate/Spring Security framework features. 
 
 ### Frameworks used 
 Spring MVC, Spring Security, Hibernate, H2 as embedded DB.
 
 ### Prerequisites
 Minimal:
+
 * JDK 7 and higher
-* Maven 3 and higher
 
 Optional:
 
-* Apache Tomcat 7 (and higher) or other servlet container, if you want to deploy WAR artifact without using embedded container
+* Maven 3+ if you want to build the project using Maven
+* Apache Tomcat 7+ or other servlet container, if you want to deploy WAR artifact without using embedded container
 
 ### How to build and run
 
-Clone application sources using `git clone` command and run Maven to build and package application WAR artifact:
+1. Clone application sources using `git clone` command 
 
-```sh
-$ mvn package
-```
-If you want to run application using embedded Tomcat servlet container then run:
-```sh
-$ mvn tomcat7:run
-```
-Open browser and navigate to http://localhost:9090/
+1. Go to application sources folder and build WAR artifact:
+
+  * You can use Gradle wrapper:
+
+    ```sh
+    $ ./gradlew build
+    ```
+
+  * Alternatively you can use Maven for artifact building:
+    
+    ```sh
+    $ mvn package
+    ```
+
+1. If you want to run application using embedded Tomcat 7 servlet container:
+
+  * Using Maven:
+
+    ```sh
+    $ mvn tomcat7:run
+    ```
+
+  * Using Gradle wrapper:
+
+    ```sh
+    $  ./gradlew appRun
+    ```
+
+1.  Open your browser and navigate to http://localhost:9090/
 
 ### How to use
 
