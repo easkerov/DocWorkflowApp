@@ -21,12 +21,11 @@
     <a href="${deleteUrl}">Удалить документ</a>
     <a href="<c:url value="/logout" />">Выход</a>
     <table style="border: 1px solid; width: 500px; text-align:center">
-        <thead style="background:#5c7cff">
+        <thead style="background:#7fc0ff">
         <tr>
             <th>НОМЕР</th>
             <th>ДАТА</th>
             <th>СУММА</th>
-            <th colspan="3"></th>
         </tr>
         </thead>
         <tbody>
@@ -40,7 +39,7 @@
         </tbody>
     </table>
     <c:if test="${empty documents}">
-        В таблице отсутствуют документы! <a href="${addUrl}">Добавить</a> документ.
+        В таблице отсутствуют документы. <a href="${addUrl}">Добавить документ</a>
     </c:if>
 </body>
 </html>

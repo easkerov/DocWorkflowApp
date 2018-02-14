@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<%
-			String docListLocation = new String("/document/list");
+			String docListLocation = "/document/list";
 			response.setStatus(response.SC_MOVED_TEMPORARILY);
 			response.setHeader("Location", docListLocation);
 		%>
