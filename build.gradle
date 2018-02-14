@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+gretty {
+    servletContainer = 'tomcat7'
+    contextPath = '/'
+    httpPort = 9090
+}
+
+group = 'com.easkerov'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+repositories {
+    maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-webmvc', version:'4.3.14.RELEASE'
+    compile group: 'javax.servlet', name: 'jstl', version:'1.2'
+    compile group: 'org.springframework', name: 'spring-tx', version:'4.3.14.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version:'4.3.14.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-web', version:'4.2.4.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-config', version:'4.2.4.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-core', version:'4.2.4.RELEASE'
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.5'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.2.1.Final'
+    compile group: 'com.h2database', name: 'h2', version:'1.4.196'
+    compile group: 'org.apache.commons', name: 'commons-dbcp2', version:'2.2.0'
+    runtime group: 'ch.qos.logback', name: 'logback-classic', version:'1.0.13'
+    testCompile group: 'org.springframework', name: 'spring-test', version:'4.3.14.RELEASE'
+    testCompile group: 'junit', name: 'junit', version:'4.11'
+    providedCompile group: 'javax.servlet', name: 'servlet-api', version:'2.5'
+    providedCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:'2.2'
+}
