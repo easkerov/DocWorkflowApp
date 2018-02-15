@@ -38,7 +38,7 @@
         </tbody>
     </table>
     <c:if test="${empty documents}">
-        В таблице отсутствуют документы. <a href="${addUrl}">Добавить документ</a>
+        В таблице отсутствуют документы
     </c:if>
     <a href=" <c:url value="/logout" />">Выход</a>
 </body>
