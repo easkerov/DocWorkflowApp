@@ -19,7 +19,6 @@
     <c:url var="deleteUrl" value="/document/delete" />
     <a href="${addUrl}">Создать документ</a>
     <a href="${deleteUrl}">Удалить документ</a>
-    <a href="<c:url value="/logout" />">Выход</a>
     <table style="border: 1px solid; width: 500px; text-align:center">
         <thead style="background:#7fc0ff">
         <tr>
@@ -41,5 +40,6 @@
     <c:if test="${empty documents}">
         В таблице отсутствуют документы. <a href="${addUrl}">Добавить документ</a>
     </c:if>
+    <a href=" <c:url value="/logout" />">Выход</a>
 </body>
 </html>
