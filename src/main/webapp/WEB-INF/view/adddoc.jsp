@@ -15,6 +15,13 @@
 <html>
 <head>
     <title>Новый документ</title>
+    <style>
+        .error
+        {
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 <h1>Новый документ</h1>
@@ -23,15 +30,18 @@
             <tr>
                 <td>Номер</td>
                 <td><form:input path="id"/></td>
+                <td><form:errors path="id" cssClass="error" /></td>
             </tr>
             <tr>
                 <td>Сумма</td>
                 <td><form:input path="amount"/></td>
+                <td><form:errors path="amount" cssClass="error" /></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Добавить"/></td>
             </tr>
         </table>
     </form:form>
+    <a href="/document/list">Список документов</a>
 </body>
 </html>

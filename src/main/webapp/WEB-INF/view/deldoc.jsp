@@ -15,6 +15,13 @@
 <html>
 <head>
     <title>Удаление документа</title>
+    <style>
+        .error
+        {
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>Удаление документа</h1>
@@ -23,11 +30,13 @@
                 <tr>
                     <td>Номер документа</td>
                     <td><form:input path="id"/></td>
+                    <td><form:errors path="id" cssClass="error"/></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Удалить"/></td>
                 </tr>
             </table>
         </form:form>
+        <a href="/document/list">Список документов</a>
 </body>
 </html>
