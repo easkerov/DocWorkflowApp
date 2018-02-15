@@ -4,17 +4,17 @@ Document Workflow Sample App
 This is sample Java web application implementing simple document workflow to demo Spring MVC/Hibernate/Spring Security framework features. 
 
 ### Frameworks used 
-Spring MVC, Spring Security, Hibernate, H2 as embedded DB.
+Spring MVC, Spring Security, Hibernate, JUnit, H2 as embedded DB.
 
 ### Prerequisites
 Minimal:
 
-* JDK 7 and higher
+* JDK 7
 
 Optional:
 
-* Maven 3+ if you want to build the project using Maven
-* Apache Tomcat 7+ or other servlet container, if you want to deploy WAR artifact without using embedded container
+* Maven 3 if you want to build the project using Maven
+* Apache Tomcat 7+ or other servlet containers, if you want to deploy WAR artifact without using embedded container
 
 ### How to build and run
 
