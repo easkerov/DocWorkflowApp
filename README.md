@@ -52,9 +52,9 @@ Optional:
 
 ### How to use
 
-By default, there are 2 users in app:
-* Ivan (password Welcome1)
-* Admin (password Welcome1)
+By default, there are two embedded users in application:
+* `Ivan` (password `Welcome1`)
+* `Admin` (password `Welcome1`)
 
 Ivan and Admin can view the list of documents. Ivan can create a new document, but cannot delete documents. Admin can delete the document by number, but cannot create documents.
 
