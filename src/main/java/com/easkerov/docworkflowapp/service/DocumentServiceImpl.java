@@ -15,18 +15,31 @@ public class DocumentServiceImpl implements DocumentService {
     @Autowired
     private DocumentDAO documentDAO;
 
+    /**
+     * Get all documents
+     * @return
+     */
     @Transactional
     public List<Document> getAll() {
 
         return documentDAO.getAll();
     }
 
+    /**
+     * Get document by id
+     * @param id
+     * @return
+     */
     @Transactional
     public Document getDocument(Integer id) {
 
         return documentDAO.getDocument(id);
     }
 
+    /**
+     * Add a new document with current date by default
+     * @param document
+     */
     @Transactional
     public void addDocument(Document document) {
 
@@ -38,6 +51,10 @@ public class DocumentServiceImpl implements DocumentService {
         documentDAO.addDocument(document);
     }
 
+    /**
+     * Delete a document by id
+     * @param id
+     */
     @Transactional
     public void delDocument(Integer id) {
 

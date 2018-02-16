@@ -24,6 +24,12 @@ public class DocumentController {
     @Autowired
     private DocumentService documentService;
 
+    /**
+     * Return doclist view with the list of documents
+     * @param request
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String getDocuments(HttpServletRequest request, Model model) {
 
@@ -41,6 +47,13 @@ public class DocumentController {
         return "doclist";
     }
 
+
+    /**
+     * Return adddoc view with input form to create a new document
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String getAddDocument(Model model, HttpServletRequest request) {
 
@@ -56,6 +69,15 @@ public class DocumentController {
         return "adddoc";
     }
 
+
+    /**
+     * Create a new document with provided 'number' and 'amount' attributes and
+     * return doclist view
+     * @param document
+     * @param bindingResult
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addDocument(@ModelAttribute("document") Document document, BindingResult bindingResult, HttpServletRequest request) {
 
@@ -100,6 +122,13 @@ public class DocumentController {
     }
 
 
+    /**
+     * Return deldoc view with input form to delete a document with
+     * provided number
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String getDelDocument(Model model, HttpServletRequest request) {
 
@@ -115,6 +144,14 @@ public class DocumentController {
         return "deldoc";
     }
 
+
+    /**
+     * Delete a document with provided number and return to user doclist view
+     * @param document
+     * @param bindingResult
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delDocument(@ModelAttribute("document") Document document, BindingResult bindingResult, HttpServletRequest request) {
 

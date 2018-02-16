@@ -9,6 +9,15 @@ public class LoggerUtil {
         return LoggerFactory.getLogger(clazz);
     }
 
+    /**
+     * Helper method to log Controller activities
+     * @param logger
+     * @param logLevel
+     * @param methodName
+     * @param httpRequestMethod
+     * @param mappingUri
+     * @param info
+     */
     public static void logActivity (Logger logger,
                                     String logLevel,
                                     String methodName,

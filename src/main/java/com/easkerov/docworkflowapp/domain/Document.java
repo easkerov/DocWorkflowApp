@@ -44,6 +44,10 @@ public class Document {
 		this.amount = amount;
 	}
 
+	/**
+	 * Return String representation of Document object
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		return "Document{" +

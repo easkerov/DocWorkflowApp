@@ -13,6 +13,9 @@ import java.util.Date;
 
 import static junit.framework.TestCase.assertTrue;
 
+/**
+ * Test all methods from Document Service
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/application-context.xml"})
 public class DocumentServiceTest {

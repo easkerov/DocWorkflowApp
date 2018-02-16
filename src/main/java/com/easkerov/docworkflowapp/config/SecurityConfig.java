@@ -17,6 +17,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().withUser("Admin").password("Welcome1").roles("ADMIN");
     }
 
+    /**
+     * Configure default users, roles and permissions
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 

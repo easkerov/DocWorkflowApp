@@ -17,6 +17,12 @@ public class ApplicationController {
 
     private static final Logger logger = LoggerUtil.getLogger(ApplicationController.class);
 
+    /**
+     * Log out current user and redirect to index.jsp page
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

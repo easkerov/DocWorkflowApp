@@ -15,29 +15,42 @@ public class DocumentDAOImpl implements DocumentDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    /**
+     * Retrieve all documents from DB
+     * @return
+     */
     public List<Document> getAll() {
 
         // Retrieve session from Hibernate
         Session session = sessionFactory.getCurrentSession();
 
-        // Create a SQL query
+        // Create a HQL query
         Query query = session.createQuery("FROM Document");
 
         // Retrieve all documents
         return query.list();
     }
 
+    /**
+     * Return document object from DB by provided id
+     * @param id
+     * @return
+     */
     public Document getDocument(Integer id) {
 
         // Retrieve session from Hibernate
         Session session = sessionFactory.getCurrentSession();
 
-        // Retrieve existing person first
+        // Retrieve existing document first
         Document document = (Document) session.get(Document.class, id);
 
         return document;
     }
 
+    /**
+     * Add document to DB by Document object
+     * @param document
+     */
     public void addDocument(Document document) {
 
         // Retrieve session from Hibernate
@@ -48,6 +61,10 @@ public class DocumentDAOImpl implements DocumentDAO {
 
     }
 
+    /**
+     * Delete a document from DB by id
+     * @param id
+     */
     public void delDocument(Integer id) {
 
         // Retrieve session from Hibernate
