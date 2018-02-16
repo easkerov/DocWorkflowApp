@@ -1,7 +1,7 @@
 Document Workflow Sample App
 ============================
 
-This is sample Java web application implementing simple document workflow to demo Spring MVC/Hibernate/Spring Security framework features. 
+This is sample Java Web Application implementing simple document workflow to demo Spring MVC/Hibernate/Spring Security framework features. 
 
 ### Frameworks used 
 Spring MVC, Spring Security, Hibernate, JUnit, H2 as embedded DB.
@@ -22,7 +22,7 @@ Optional:
 
 1. Go to application sources folder and build WAR artifact:
 
-   * You can use Gradle wrapper:
+   * Using Gradle wrapper:
 
      ```sh
      $ ./gradlew build
@@ -56,7 +56,7 @@ By default, there are two embedded users in application:
 * `Ivan` (password `Welcome1`)
 * `Admin` (password `Welcome1`)
 
-Ivan and Admin can view the list of documents. Ivan can create a new document, but cannot delete documents. Admin can delete the document by number, but cannot create documents.
+Ivan and Admin can view the list of documents. Ivan can create a new document, but cannot delete documents. Admin can delete the document by id, but cannot create documents.
 
 ### Configuration
 
